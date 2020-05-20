@@ -1,0 +1,147 @@
+<div class="container">
+
+    <div class="row my-3 bg-white border shadow-sm">
+        
+        <div class="col-md-10 mx-auto p-2">
+            <form [formGroup]="kycForm" (ngSubmit)="onSubmit(kycForm.value)">
+
+                <div class="row">
+                <div class="col-12">
+                <h5 class="font-weight-bold" i18n="form | Start Form Message">Parlez nous un peu de vous.</h5>
+                <hr>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label class="font-weight-bold text-muted" i18n="form | Nom">Email</label>
+                        <input type="text" class="form-control" placeholder="ex:Dupont" [(ngModel)]="userForm.LegalRepresentativeEmail" formControlName="LegalRepresentativeEmail" #email required>
+                    </div>
+                    <div class="form-group col-sm-6 col-xs-12">
+                        <label class="font-weight-bold text-muted" i18n="form | Nom">Nom</label>
+                        <input type="text" class="form-control" placeholder="ex:Dupont" formControlName="LegalRepresentativeLastName" #nom required>
+                    </div>
+                    <div class="form-group col-sm-6 col-xs-12">
+                        <label class="font-weight-bold text-muted" i18n="form | Prenom">Prénom</label>
+                        <input type="text" class="form-control" placeholder="ex:Jean" formControlName="LegalRepresentativeFirstName" #prenom required>
+                    </div>
+                    
+                    <div class="form-group col-sm-12 col-xs-12">
+                        <label class="font-weight-bold text-muted" i18n="form | Prenom">Region</label>
+                        <select type="text" class="form-control" formControlName="Region"  #Region required>
+                            <option value="" selected disabled>Séléctionner votre région</option>
+                            <option *ngFor="let region of regions" value="{{ region.name }}"> {{ region.name }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-12 col-xs-12">
+                        <label class="font-weight-bold text-muted" i18n="form | Prenom">Pays de résidence</label>
+                        <select type="text" class="form-control" formControlName="Country"  #Country required>
+                            <option value="" selected disabled>Séléctionner votre pays</option>
+                            <option *ngFor="let country of countries" value="{{ country.code }}">{{ country.name }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-12">
+                        <label class="font-weight-bold text-muted" i18n="form | Adresse">Adresse</label>
+                        <input type="text" class="form-control" placeholder="ex:1 Rue des Tilleuls" formControlName="AddressLine1" #adresseLine1 required>
+                    </div>
+                    <div class="form-group col-12">
+                        <label class="font-weight-bold text-muted" i18n="form | Complement adresse">Complément</label>
+                        <input type="text" class="form-control" placeholder="ex:BAT D APPT 2" formControlName="AddressLine2" #addresseLine2>
+                    </div>
+                    <div class="form-group col-sm-12 col-xs-12">
+                        <label class="font-weight-bold text-muted" i18n="form | Prenom">Pays</label>
+                        <select type="text" class="form-control" formControlName="HQCountry"  #HQCountry required>
+                            <option value="" selected disabled>Séléctionner votre pays</option>
+                            <option *ngFor="let country of countries" value="{{ country.code }}">{{ country.name }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="font-weight-bold text-muted" i18n="form | Code postale">Code Postale</label>
+                        <input type="number" class="form-control" placeholder="ex:33000" formControlName="PostalCode" #postalCode required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="font-weight-bold text-muted" i18n="form | ville">Ville</label>
+                        <input type="text" class="form-control" placeholder="ex:Bordeaux" formControlName="City" #city required>
+                    </div>
+
+                    <div class="form-group col-12 mt-4">
+                        <h5 class="font-weight-bold">Informations légales</h5>
+                    </div>
+
+
+                    <div class="form-group col-sm-12 col-xs-12">
+                        <label class="font-weight-bold text-muted" i18n="form | Prenom">Née le</label>
+                        <input type="date" class="form-control" placeholder="ex:14/11/1993" formControlName="Birthdate" #Birthdate required>
+                    </div>
+                    <div class="form-group col-sm-12 col-xs-12">
+                        <label class="font-weight-bold text-muted" i18n="form | Prenom">À</label>
+                        <input type="text" class="form-control" placeholder="ex:Avignon" formControlName="BirthCity" #BirthCity required>
+                        
+                    </div>
+                    <div class="form-group col-sm-12 col-xs-12">
+                        <label class="font-weight-bold text-muted" i18n="form | Prenom">Code Postale Ville de Naissance</label>
+                        <input type="text" class="form-control" placeholder="ex:33140" formControlName="BirthCity" #BirthCity required>
+                    </div>
+                    <div class="form-group col-sm-12 col-xs-12">
+                        <label class="font-weight-bold text-muted" i18n="form | Prenom">Pays de Naissance</label>
+                        <select type="text" class="form-control" formControlName="BirthCountry"  #BirthCountry required>
+                            <option value="" selected disabled>Séléctionner votre pays</option>
+                            <option *ngFor="let country of countries" value="{{ country.code }}">{{ country.name }}</option>
+                        </select>
+                    </div>
+                    
+
+                </div>
+                </div>
+
+                <div class="col-12 my-2">
+                    <h5 class="font-weight-bold" i18n="form | Start Form Message">Parlez nous un peu de votre entreprise.</h5>
+                    <hr>
+                    <div class="form-row">
+                    <!-- Headquarter  -->
+                    <div class="form-group col-12">
+                        <label class="font-weight-bold text-muted" i18n="form step 2  | Adresse">Nom du magasin</label>
+                        <input type="text" class="form-control" placeholder="ex: Auchan Bordeaux Lac" formControlName="Name" #name required>
+                    </div>
+                    <div class="form-group col-12">
+                        <label class="font-weight-bold text-muted" i18n="form step 2  | Adresse">Numéro Siret</label>
+                        <input type="text" class="form-control" placeholder="ex:843xxx xxx xxxxx" formControlName="CompanyNumber" #siret required>
+                    </div>
+                    <div class="form-group col-12">
+                        <label class="font-weight-bold text-muted" i18n="form step 2  | Adresse">Adresse du magasin</label>
+                        <input type="text" class="form-control" placeholder="ex:1 Rue des Tilleuls" formControlName="HQAddressLine1" #HQadresseLine1 required>
+                    </div>
+                    <div class="form-group col-12">
+                        <label class="font-weight-bold text-muted" i18n="form step 2  | Complement adresse">Complément</label>
+                        <input type="text" class="form-control" placeholder="ex:BAT D APPT 2" formControlName="HQAddressLine2" #HQaddresseLine2>
+                    </div>
+                    <div class="form-group col-sm-12 col-xs-12">
+                        <label class="font-weight-bold text-muted" i18n="form | Prenom">Region</label>
+                        <select type="text" class="form-control" formControlName="Region"  #Region required>
+                            <option value="" selected disabled>Séléctionner votre région</option>
+                            <option *ngFor="let region of regions" value="{{ region.name }}"> {{ region.name }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="font-weight-bold text-muted" i18n="form step 2 | Code postale">Code Postale</label>
+                        <input type="number" class="form-control" placeholder="ex:33000" formControlName="HQPostalCode" #HQpostalCode required>
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <label class="font-weight-bold text-muted" i18n="form step 2  | ville">Ville</label>
+                        <input type="text" class="form-control" placeholder="ex:Bordeaux" formControlName="HQCity" #HQcity required>
+                    </div>
+                    <!-- Headquarter  -->
+                </div>
+                </div>
+                    
+
+                    <div class="form-group col-12">
+                        <button type="submit" class="btn btn-primary btn-block btn-sm" i18n="form | Next">Suivant</button>
+                    </div>
+                </div>
+
+            </form>    
+        </div>
+
+
+
+    </div>
+
+</div>

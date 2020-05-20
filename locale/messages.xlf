@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="b2d7b4e5933b766c3450fe82af46a51d7906768f" datatype="html">
+        <source>Hello World</source>
+        <target>Bonjour</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/welcom/welcom.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description"> Un message de bienvenue en entete</note>
+        <note priority="1" from="meaning">welcom page </note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,37 @@
+<div class="container">
+    
+    <div class="row bg-white shadow-sm my-3">
+        <div class="col-10 mx-auto">
+            
+            <h2 i18n="welcom page | Un message de bienvenue en entete">Bienvenue sur la création de votre compte Pro</h2>
+
+        </div>
+        <div class="col-10  mx-auto">
+            
+            <p i18n="welcom page | Introduction documents"> Pour nous permettre de valider votre compte nous avons besoin que vous prepariez les documents suivant :</p>
+
+            <ul>
+                <li i18n="welcom page | list : Piece d identité">Une piece d'identité valide (permis de conduire/piece d'identité national)</li>
+                <li i18n="welcom page | list : Justificatif de domicile">Un justificatif de domicile</li>
+                <li i18n="welcom page | list : Un Kbis">Un Kbis/Document INSEE de moins de 3 mois</li>
+            </ul>
+
+            <p i18n="welcom page | Fin de l'introduction document">Une fois ces documents en votre possession vous pouvez commencer</p>
+
+        </div>
+
+        <div class="col-10 alert alert-success mx-auto">
+            <b>Pourquoi ? :</b> La loi nous oblige à fournir les informations légales des sociétés avec lesquelles nous travaillons. Pour que vos paiements puisse vous être transmis, nous devons connaitre certaine informations. C'est un systeme en place pour lutter contre le blanchiment d'argent ou le financement du terrorisme par exemple.
+        </div>
+
+        <div class="col-10 mx-auto">
+            <label for="docConfirm" class="form-check-label">
+            <input id="docConfirm" (change)="checkDocConfirm($event)" type="checkbox" /> 
+            Je dispose de l'ensemble de ces documents </label>
+        </div>
+        <div class="col-10 mx-auto my-2">
+            <button [routerLink]="['/form']" class="btn btn-primary btn-sm btn-block" [disabled]="buttonDisable">Confirm</button>
+        </div>
+    </div>
+
+</div>

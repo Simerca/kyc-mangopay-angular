@@ -1,0 +1,55 @@
+<div class="container">
+
+    <div class="loadingZone bg-white vertical-center row bg-white" *ngIf="kyc.onload">
+            <div class="col-12 text-center ">
+                <h5>Validation de votre document par notre partenaire</h5>
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+             </div>    
+    </div>
+
+    <div class="row my-5 bg-white  border shadow-sm">
+        
+        <div class="col-md-10 mx-auto p-2">
+            <form method="post">
+
+                <h5 i18n="form step 2 | Start Form Message">Parlez nous un peu de votre société.</h5>
+                <hr>
+                <div class="form-row">
+                    
+                    <div class="form-group col-sm-12">
+                        <label class="font-weight-bold" i18n="form step 2  | Kbis">Extrait KBIS</label><br>
+                        <input id="input-b1" [disabled]="kyc.docValid1" name="input-b1" type="file" (change)="createDoc('REGISTRATION_PROOF',$event)" class="file" >
+                        <small class="form-text text-success" *ngIf="kyc.docValid1">Document envoyé</small>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label class="font-weight-bold" i18n="form step 2  | Kbis">Status de société</label><br>
+                        <input id="input-b1" [disabled]="kyc.docValid4" name="input-b1" type="file" (change)="createDoc('ARTICLES_OF_ASSOCIATION',$event)" class="file" >
+                        <small class="form-text text-success" *ngIf="kyc.docValid4">Document envoyé</small>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label class="font-weight-bold" i18n="form step 2  | Kbis">Pieces d'identité</label><br>
+                        <input id="input-b1" [disabled]="kyc.docValid2" name="input-b1" type="file" (change)="createDoc('IDENTITY_PROOF',$event)" class="file" >
+                        <small class="form-text text-success" *ngIf="kyc.docValid2">Document envoyé</small>
+                    </div>
+                    <!-- <div class="form-group col-sm-12">
+                        <label class="font-weight-bold" i18n="form step 2  | Kbis">Justificatif de domicile</label><br>
+                        <input id="input-b1" [disabled]="kyc.docValid3" name="input-b1" type="file" class="file" (change)="createDoc('ADDRESS_PROOF',$event)" >
+                        <small class="form-text text-success" *ngIf="kyc.docValid3">Document envoyé</small>
+                    </div> -->
+                    <div class="form-group col-12">
+                        <button type="button" class="btn btn-success btn-block btn-sm" (click)="verifDoc()" i18n="form | Next">Verifier les documents</button>
+                    </div>
+                    <div class="form-group col-12">
+                        <button [routerLink]="['/success']" type="submit" [disabled]="buttonDisable" class="btn btn-primary btn-block btn-sm" i18n="form | Next">Suivant</button>
+                    </div>
+                </div>
+
+            </form>    
+        </div>
+
+
+
+    </div>
+</div>
